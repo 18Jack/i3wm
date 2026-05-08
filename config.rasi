@@ -1,0 +1,9 @@
+configuration {
+    modi: "drun";
+    show-icons: true;
+    icon-theme: "elementary";
+    drun-display-format: "{name} <small>({generic})</small>";
+    display-drun: "drun |";
+}
+
+@theme "~/.config/rofi/theme.rasi"

@@ -19,7 +19,7 @@ bindsym $mod+Shift+r restart
 
 # ── Foco entre ventanas ──────────────────────────────
 bindsym $mod+Left  focus left
-bindsym $mod+Dowm focus down
+bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
@@ -64,7 +64,7 @@ bindsym $mod+l exec dm-tool lock
 mode "resize" {
     bindsym Left resize grow width 5 px or 5 ppt
     bindsym Right resize shrink width 5 px or 5 ppt
-    bindsym Dowm resize grow height 5 px or 5 ppt
+    bindsym Down resize grow height 5 px or 5 ppt
     bindsym Up resize shrink height 5 px or 5 ppt
     bindsym Escape mode "default"
 }
@@ -77,6 +77,8 @@ gaps inner 6
 smart_gaps on
 
 for_window [class="^.*"] border pixel 1
+#color borde de la ventana con foco
+client.focused          #ff0000 #ff0000 #ffffff #ff0000 #ff0000
 
 # ── Barra de estado(Polybar) ──────────────────────────────────
 exec --no-startup-id polybar --config=~/.config/polybar/config.ini main
@@ -90,6 +92,8 @@ exec_always --no-startup-id picom -b -f
 exec --no-startup-id flatpak run com.opera.Opera
 exec --no-startup-id sleep 5 && flatpak run org.mozilla.firefox --new-window https://web.whatsapp.com
 exec --no-startup-id sleep 10 && flatpak run com.spotify.Client
+
+exec --no-startup-id flatpak run com.github.elfenware.badger
 
 # ── Volumen ─────────────────────────────────────────
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
@@ -106,7 +110,7 @@ bindsym XF86AudioStop exec playerctl stop
 bindsym Print exec --no-startup-id maim | xclip -selection clipboard -t image/png
 
 # Captura de área seleccionada al portapapeles
-bindsym $mod+Print exec --no-startup-id maim -s | xclip -selection clipboard -t image/png
+bindsym $mod+Shift+Print exec --no-startup-id maim -s | xclip -selection clipboard -t image/png
 
 #Fondo de pantalla
 exec_always --no-startup-id feh --bg-fill "/home/david/Imagenes/FondosEscritorio/montain_vec.jpg"
